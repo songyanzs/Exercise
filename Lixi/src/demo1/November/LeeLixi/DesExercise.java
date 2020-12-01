@@ -1,9 +1,14 @@
 package demo1.November.LeeLixi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DesExercise {
 
     public static void main(String[] args) {
-        
+        DesExercise desExercise =new DesExercise();
+        int[] arr = new int[]{2,3,-2,4,9};
+        System.out.println(desExercise.maxProduct(arr));
     }
 
     /**
@@ -15,7 +20,21 @@ public class DesExercise {
      * @return
      */
     public int maxProduct(int[] nums) {
-        int result = nums[0] ;
-        return result;
+        int a=1;
+        int max=nums[0];
+
+        for(int num:nums){
+            a=a*num;
+            if(max<a)max=a;
+            if(num==0)a=1;
+
+        }
+        a=1;
+        for(int i=nums.length-1;i>=0;i--){
+            a=a*nums[i];
+            if(max<a)max=a;
+            if(nums[i]==0)a=1;
+        }
+        return max;
     }
 }
