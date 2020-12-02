@@ -50,4 +50,19 @@ public class TestRabbitMQ {
     public void  test(){
         rabbitTemplate.convertAndSend("hello","hello world");
     }
+
+
+    @Test
+    public void testDirect(){
+        /**
+         * 参数
+         * 1，交换机名称
+         * 2，routingkey
+         * 3,消息内容
+         */
+        for (int i = 0; i < 10; i++) {
+            rabbitTemplate.convertAndSend("TestDirectExchange","testDirect","测试数据----->"+i);
+            rabbitTemplate.convertAndSend("TestDirectExchange","testDirect2","测试数据2----->"+i);
+        }
+    }
 }
