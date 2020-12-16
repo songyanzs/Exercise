@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.syzs.domain.Order;
 import com.syzs.domain.Product;
 import com.syzs.service.OrderService;
+import com.syzs.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,16 @@ import java.util.List;
 
 
 @Slf4j
-@RestController
+//@RestController
 public class OrderController {
 
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -35,9 +39,10 @@ public class OrderController {
         log.info(">>客户下单，这时候要调用商品微服务查询商品信息");
         List<ServiceInstance> list = discoveryClient.getInstances("service-product");
         ServiceInstance instance = list.get(0);
-        //通过restTemplate调用商品微服务
+        /*//通过restTemplate调用商品微服务
         Product product = restTemplate.getForObject(
-                "http://"+instance.getHost()+":"+instance.getPort()+"/product/" + pid, Product.class);
+                "http://"+instance.getHost()+":"+instance.getPort()+"/product/" + pid, Product.class);*/
+        Product product = productService.findByPid(pid);
         log.info(">>商品信息,查询结果:" + JSON.toJSONString(product));
         Order order = new Order();
         order.setUid(1);
