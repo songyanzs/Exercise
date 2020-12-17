@@ -2,11 +2,13 @@ package com.syzs.service;
 
 
 import com.syzs.domain.Product;
+import com.syzs.service.fallback.ProductServiceFallBack;
+import com.syzs.service.fallback.ProductServiceFallBackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "service-product")
+@FeignClient(value = "service-product",fallbackFactory = ProductServiceFallBackFactory.class)
 public interface ProductService {
 
 

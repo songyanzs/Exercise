@@ -1,0 +1,22 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+          enabled: true
+      routes:  #路由数组[路由 就是指定当请求满足什么条件的时候转到哪个微服务]
+        - id: product_route
+          uri: lb://service-product
+          order: 1
+          predicates:
+            - Path=/product-serv/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        server-addr:  localhost:8848

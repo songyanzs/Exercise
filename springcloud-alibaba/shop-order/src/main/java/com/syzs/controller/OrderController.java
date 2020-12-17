@@ -20,7 +20,7 @@ import java.util.List;
 
 
 @Slf4j
-//@RestController
+@RestController
 public class OrderController {
 
     @Autowired
@@ -43,6 +43,12 @@ public class OrderController {
         Product product = restTemplate.getForObject(
                 "http://"+instance.getHost()+":"+instance.getPort()+"/product/" + pid, Product.class);*/
         Product product = productService.findByPid(pid);
+
+        if (product.getPid() == -1) {
+            Order order = new Order();
+            order.setPname("下单失败");
+            return order;
+        }
         log.info(">>商品信息,查询结果:" + JSON.toJSONString(product));
         Order order = new Order();
         order.setUid(1);

@@ -22,3 +22,7 @@ spring:
           transport:
             port: 8719
             dashboard: localhost:8080
+
+feign:
+  sentinel:
+    enabled: true
