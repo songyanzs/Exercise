@@ -15,8 +15,20 @@ spring:
           order: 1
           predicates:
             - Path=/product-serv/**
+#            - Age= 18,60
           filters:
             - StripPrefix=1
+#            - Log=true,true #控制日志是否开启
+        - id: order_route
+          uri: lb://service-order
+          order: 1
+          predicates:
+            - Path=/order-serv/**
+#            - Age= 18,60
+          filters:
+            - StripPrefix=1
+#            - Log=true,true #控制日志是否开启
+
     nacos:
       discovery:
         server-addr:  localhost:8848
