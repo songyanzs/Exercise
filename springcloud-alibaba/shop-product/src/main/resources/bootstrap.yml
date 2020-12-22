@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: service-product
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        shared-dataids: all-service.yaml
+        refreshable-dataids: all-service.yaml
+  profiles:
+    active: dev
