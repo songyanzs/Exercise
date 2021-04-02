@@ -19,7 +19,8 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public void udpHandleMethod(String message) throws Exception {
         logger.info("业务开始处理");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+        logger.info(message);
         logger.info("业务处理完成");
     }
 }

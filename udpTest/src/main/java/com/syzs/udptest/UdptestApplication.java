@@ -8,6 +8,7 @@ public class UdptestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UdptestApplication.class, args);
+		System.out.println("后台启动成功......");
 	}
 
 }

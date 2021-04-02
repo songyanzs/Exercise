@@ -12,7 +12,7 @@ import org.springframework.integration.ip.udp.UnicastSendingMessageHandler;
  * @author wliduo[i@dolyw.com]
  * @date 2020/5/20 15:59
  */
-@Configuration
+//@Configuration
 public class UdpIntegrationClientConfig {
 
     @Value("${udp.port}")

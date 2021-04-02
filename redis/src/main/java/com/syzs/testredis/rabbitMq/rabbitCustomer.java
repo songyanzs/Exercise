@@ -10,9 +10,9 @@ public class rabbitCustomer {
 
     @RabbitListener(bindings = {
             @QueueBinding(
-                    value = @Queue("TestDirectQueue"),//创建临时队列
-                    exchange = @Exchange(value = "TestDirectExchange",type = "direct"),
-                    key = {"testDirect","error"}
+                    value = @Queue("DirectQueue"),//创建临时队列
+                    exchange = @Exchange(value = "DirectExchange",type = "direct"),
+                    key = {"UdpToDirect","error"}
             )
     })
     public void receive(String messsage){

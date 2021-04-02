@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @author wliduo[i@dolyw.com]
  * @date 2020/5/20 15:53
  */
-@Service
+//@Service
 public class UdpIntegrationClient {
 
     private final static Logger logger = LoggerFactory.getLogger(UdpIntegrationClient.class);

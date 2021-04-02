@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
  * @author wliduo[i@dolyw.com]
  * @date 2020/5/20 15:53
  */
-@Service
+//@Service
 public class UdpSimpleClient {
 
     private final static Logger logger = LoggerFactory.getLogger(UdpSimpleClient.class);
@@ -32,6 +32,7 @@ public class UdpSimpleClient {
         try (DatagramSocket datagramSocket = new DatagramSocket()) {
             datagramPacket = new DatagramPacket(udpMessage, udpMessage.length, inetSocketAddress);
             datagramSocket.send(datagramPacket);
+            datagramSocket.close();
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
