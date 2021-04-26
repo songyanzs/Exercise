@@ -65,7 +65,7 @@ public class httpTest {
 
 
     public static void main(String[] args) {
-        String res = HttpUtils.sendGet("http://192.168.5.109:8080/data/structuredData/getAirData","");
+        String res = HttpUtils.sendGet("https://v1.hitokoto.cn/","");
         System.out.println(res);
     }
 

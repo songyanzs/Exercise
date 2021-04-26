@@ -61,7 +61,7 @@ public class FileScan  implements CommandLineRunner{
                     System.out.println("文件轮询开始");
                     start("E:\\monitorDir");
                     try {
-                        Thread.sleep(TimeUnit.MINUTES.toMillis(1));
+                        Thread.sleep(TimeUnit.MINUTES.toMillis(90));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
